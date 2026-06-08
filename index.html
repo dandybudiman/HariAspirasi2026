@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="nav-cover flex item-center justify-center bg-slate-800 text-white p-4 shadow-md">
+        <div class="w-full mx-12 flex items-center justify-between">
+            
+            <div class="nav-kiri mx-2 flex items-center justify-start">
+                <img src="https://via.placeholder.com/150" alt="Logo Kiri" class="h-10 w-auto object-contain">
+            </div>
+
+            <div class="nav-tengah text-center flex-1 mx-4">
+                <span class="block font-extrabold text-base md:text-xl tracking-wide uppercase">
+                    Dewan Perwakilan Mahasiswa
+                </span>
+                <span class="block text-[10px] text-slate-400 font-medium tracking-widest mt-0.5 uppercase">
+                    Poltekkes Kemenkes Jakarta II
+                </span>
+            </div>
+
+            <div class="nav-kanan mx-2 flex items-center justify-end">
+                <img src="https://via.placeholder.com/150" alt="Logo Kanan" class="h-10 w-auto object-contain">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="ket-section-cover flex w-full items-center justify-center">
+        <div class="progress-ket-section flex-1 max-w-6xl mx-4 my-6 p-4 bg-white rounded-2xl shadow-sm border border-slate-200">
+            <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">Keterangan Status Progress:</h3>
+            <div class="flex flex-wrap gap-4 text-xs font-semibold">
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200">DITERIMA</span>
+                    <span class="text-slate-600">Aspirasi disetujui direktorat & masuk antrean program.</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200">DIPROSES</span>
+                    <span class="text-slate-600">Sedang dieksekusi atau dikerjakan di lapangan.</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">SELESAI</span>
+                    <span class="text-slate-600">Aspirasi rampung direalisasikan secara penuh.</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-800 border border-rose-200">DITANGGUHKAN</span>
+                    <span class="text-slate-600">Ditinjau ulang karena kendala anggaran/teknis.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats-section-cover flex w-full items-center justify-center">
+        <div class="progress-stats-section flex-1 max-w-6xl mx-4 my-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            
+            <div class="bg-blue-50/50 border border-blue-200 p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                <span class="text-xs font-bold text-blue-700 tracking-wider uppercase">Diterima</span>
+                <span id="stat-diterima" class="text-3xl font-extrabold text-blue-900 mt-2">0</span>
+            </div>
+
+            <div class="bg-amber-50/50 border border-amber-200 p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                <span class="text-xs font-bold text-amber-700 tracking-wider uppercase">Diproses</span>
+                <span id="stat-diproses" class="text-3xl font-extrabold text-amber-900 mt-2">0</span>
+            </div>
+
+            <div class="bg-emerald-50/50 border border-emerald-200 p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                <span class="text-xs font-bold text-emerald-700 tracking-wider uppercase">Selesai</span>
+                <span id="stat-selesai" class="text-3xl font-extrabold text-emerald-900 mt-2">0</span>
+            </div>
+
+            <div class="bg-rose-50/50 border border-rose-200 p-4 rounded-2xl flex flex-col justify-between shadow-sm">
+                <span class="text-xs font-bold text-rose-700 tracking-wider uppercase">Ditangguhkan</span>
+                <span id="stat-ditangguhkan" class="text-3xl font-extrabold text-rose-900 mt-2">0</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="direk-section-cover flex w-full items-center justify-center">
+        <div class="progress-direk-section flex-1 max-w-6xl mx-4 my-4 p-6 bg-indigo-50/60 rounded-2xl border border-indigo-100 shadow-sm">
+            <h2 class="text-xl font-extrabold text-indigo-950 mb-4 flex items-center gap-2">
+                🏛️ Aspirasi Tingkat Direktorat
+            </h2>
+            <div id="direktorat-container" class="flex flex-wrap gap-4 justify-start">
+                <p class="text-slate-400 text-sm italic">Memuat aspirasi direktorat...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="jurusan-section-cover flex w-full items-center justify-center">
+        <div class="farmasi-cover flex-1 max-w-6xl mx-4 my-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">💊 Jurusan Farmasi</h2>
+            <div id="farmasi-container" class="flex flex-wrap gap-4">
+                <p class="text-slate-400 text-sm italic">Memuat aspirasi Farmasi...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="jurusan-section-cover flex w-full items-center justify-center">
+        <div class="kesling-cover flex-1 max-w-6xl mx-4 my-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">🧹 Jurusan Kesling (Kesehatan Lingkungan)</h2>
+            <div id="kesling-container" class="flex flex-wrap gap-4">
+                <p class="text-slate-400 text-sm italic">Memuat aspirasi Kesling...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="jurusan-section-cover flex w-full items-center justify-center">
+        <div class="tem-cover flex-1 max-w-6xl mx-4 my-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">⚡ Jurusan TEM (Teknologi Elektromedis)</h2>
+            <div id="tem-container" class="flex flex-wrap gap-4">
+                <p class="text-slate-400 text-sm italic">Memuat aspirasi TEM...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="jurusan-section-cover flex w-full items-center justify-center">
+        <div class="tro-cover flex-1 max-w-6xl mx-4 my-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">👁️ Jurusan TRO (Teknologi Radiologi Pencitraan / Refraksi Optisi)</h2>
+            <div id="tro-container" class="flex flex-wrap gap-4">
+                <p class="text-slate-400 text-sm italic">Memuat aspirasi TRO...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="jurusan-section-cover flex w-full items-center justify-center">
+        <div class="gizi-cover flex-1 max-w-6xl mx-4 my-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">🍏 Jurusan Gizi</h2>
+            <div id="gizi-container" class="flex flex-wrap gap-4">
+                <p class="text-slate-400 text-sm italic">Memuat aspirasi Gizi...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="jurusan-section-cover flex w-full items-center justify-center">
+        <div class="anfar-cover flex-1 max-w-6xl mx-4 my-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">🧪 Jurusan Anfar (Analisis Farmasi)</h2>
+            <div id="anfar-container" class="flex flex-wrap gap-4">
+                <p class="text-slate-400 text-sm italic">Memuat aspirasi Anfar...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="jurusan-section-cover flex w-full items-center justify-center">
+        <div class="tg-cover flex-1 max-w-6xl mx-4 my-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">🦷 Jurusan TG (Teknik Gigi)</h2>
+            <div id="tg-container" class="flex flex-wrap gap-4">
+                <p class="text-slate-400 text-sm italic">Memuat aspirasi TG...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

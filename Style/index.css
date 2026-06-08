@@ -1,0 +1,44 @@
+.flex-container { 
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center; 
+    margin-top: 30px; 
+}
+
+.card { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    flex: 1 1 300px;
+    max-width: 400px; 
+}
+
+.jurusan { 
+    font-size: 12px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    color: #888; 
+}
+.judul { 
+    font-size: 18px; 
+    margin: 10px 0; 
+    color: #222; 
+}
+
+.badge { 
+    display: inline-block; 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    font-size: 12px; 
+    font-weight: bold; 
+    color: white; 
+}
+
+/* Status badge color */
+.status-default { background-color: #6B7280; } 
+.status-diterima { background-color: #2563EB; }
+.status-diproses { background-color: #D97706; }     
+.status-selesai { background-color: #16A34A; }      
+.status-ditangguhkan { background-color: #DC2626; } 
