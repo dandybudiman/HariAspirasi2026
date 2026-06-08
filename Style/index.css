@@ -37,8 +37,22 @@
 }
 
 /* Status badge color */
-.status-default { background-color: #6B7280; } 
-.status-diterima { background-color: #2563EB; }
-.status-diproses { background-color: #D97706; }     
-.status-selesai { background-color: #16A34A; }      
-.status-ditangguhkan { background-color: #DC2626; } 
+.status-default { 
+    background-color: #6B7280; 
+} 
+
+.status-diterima { 
+    background-color: #2563EB; 
+}
+
+.status-diproses { 
+    background-color: #D97706; 
+}     
+
+.status-selesai { 
+    background-color: #16A34A; 
+}      
+
+.status-ditangguhkan { 
+    background-color: #DC2626; 
+} 
